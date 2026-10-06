@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8-sinf fizika — O‘tkazgichlarda elektr zaryadlarining taqsimlanishi</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--accent:#2563eb;--accent2:#0ea5e9;--good:#16a34a;--warn:#f59e0b}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+header{background:linear-gradient(135deg,#1d4ed8,#0ea5e9);color:white;padding:38px 20px;text-align:center}
+header h1{margin:0 0 8px;font-size:clamp(28px,5vw,48px)} header p{margin:6px auto;max-width:850px}
+nav{position:sticky;top:0;z-index:5;background:#0f172a;padding:10px;display:flex;gap:8px;overflow:auto}
+nav a{color:white;text-decoration:none;padding:8px 12px;border-radius:8px;white-space:nowrap;font-size:14px}nav a:hover{background:#334155}
+main{max-width:1100px;margin:auto;padding:24px 16px}.card{background:var(--card);border-radius:18px;padding:24px;margin:18px 0;box-shadow:0 5px 20px #0000000d}
+h2{color:#1d4ed8;border-bottom:2px solid #dbeafe;padding-bottom:8px}h3{color:#0369a1}
+strong{color:#0f172a}.badge{display:inline-block;background:#dbeafe;color:#1d4ed8;padding:4px 10px;border-radius:20px;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}.box{background:#f8fafc;border-left:5px solid var(--accent);padding:15px;border-radius:10px}
+.formula{background:#eff6ff;border:1px solid #bfdbfe;padding:16px;border-radius:12px;font-size:20px;text-align:center;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0}th,td{border:1px solid #cbd5e1;padding:10px;text-align:left}th{background:#e0f2fe}
+.anim{border:2px dashed #60a5fa;border-radius:16px;padding:20px;background:#f8fbff}
+button{border:0;border-radius:10px;background:#2563eb;color:white;padding:10px 16px;cursor:pointer;font-weight:bold;margin:4px}button:hover{background:#1d4ed8}
+.sim{height:190px;background:#0f172a;border-radius:14px;position:relative;overflow:hidden;margin:15px 0}
+.wire{position:absolute;left:8%;right:8%;top:75px;height:45px;border:4px solid #94a3b8;border-radius:30px;background:#475569}
+.electron{position:absolute;width:10px;height:10px;border-radius:50%;background:#38bdf8;box-shadow:0 0 10px #38bdf8}
+.surface{position:absolute;inset:35px;border:4px solid #94a3b8;border-radius:50%;top:30px;width:130px;height:130px;left:calc(50% - 65px)}
+.field{position:absolute;inset:20px;border-radius:50%;border:2px dashed #facc15;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{transform:scale(1.05);opacity:.45}}
+.question{padding:14px;background:#f8fafc;border-radius:12px;margin:10px 0}.answer{display:none;margin-top:8px;color:var(--good);font-weight:bold}
+.prompt{background:#111827;color:#e5e7eb;padding:14px;border-radius:10px;white-space:pre-wrap}
+footer{text-align:center;padding:30px;color:#64748b}
+@media print{nav,button{display:none}.card{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+  <div class="badge">8-SINF FIZIKA</div>
+  <h1>O‘tkazgichlarda elektr zaryadlarining taqsimlanishi</h1>
+  <p>Zamonaviy, interaktiv va o‘qituvchi foydalanishiga tayyor dars materiali</p>
+</header>
+
+<nav>
+<a href="#maqsad">Maqsad</a><a href="#tushuncha">Tushunchalar</a><a href="#1">1-bo‘lim</a>
+<a href="#2">2-bo‘lim</a><a href="#3">3-bo‘lim</a><a href="#savollar">Savollar</a>
+<a href="#test">Test</a><a href="#masala">Masalalar</a><a href="#uy">Uyga vazifa</a>
+</nav>
+
+<main>
+<section id="maqsad" class="card">
+<h2>1. Mavzuning maqsadi 🎯</h2>
+<div class="grid">
+<div class="box"><b>Ta’limiy:</b> o‘tkazgich, erkin elektronlar, zaryadlarning taqsimlanishi va elektr maydonni tushuntirish.</div>
+<div class="box"><b>Rivojlantiruvchi:</b> kuzatish, sabab–oqibatni aniqlash va fizik xulosa chiqarish.</div>
+<div class="box"><b>Tarbiyaviy:</b> elektr hodisalaridan xavfsiz va ongli foydalanish madaniyatini shakllantirish.</div>
+</div>
+<h2>Kutiladigan natijalar</h2>
+<p>O‘quvchi o‘tkazgichni ta’riflaydi, erkin elektronlarni tushuntiradi, zaryadlarning sirt bo‘ylab taqsimlanishini izohlaydi, o‘tkir uchlarda zaryad zichligi kattaroq bo‘lishini tushuntiradi va elektr maydon kuch chiziqlarini tasvirlay oladi.</p>
+</section>
+
+<section id="tushuncha" class="card">
+<h2>2. Asosiy tushunchalar va ta’riflar</h2>
+<table><tr><th>Tushuncha</th><th>Ta’rif</th></tr>
+<tr><td>O‘tkazgich</td><td>Elektr zaryadlari, ayniqsa erkin zaryad tashuvchilar, nisbatan erkin harakatlana oladigan modda yoki jism.</td></tr>
+<tr><td>Erkin elektron</td><td>Metall tarkibida kristall panjaraga kuchsizroq bog‘langan va jism bo‘ylab harakatlana oladigan elektron.</td></tr>
+<tr><td>Elektr zaryadi</td><td>Jismlarning elektr ta’sirlashuvini belgilovchi fizik kattalik. SI birligi — kulon (C).</td></tr>
+<tr><td>Elektr maydon</td><td>Zaryadlar atrofida mavjud bo‘lib, boshqa zaryadlarga elektr kuchi bilan ta’sir qiladigan maydon.</td></tr>
+<tr><td>Kuch chiziqlari</td><td>Elektr maydon yo‘nalishini tasvirlash uchun ishlatiladigan shartli chiziqlar.</td></tr></table>
+<p><b>Musbat (+) va manfiy (−) zaryadlar:</b> bir xil ishorali zaryadlar itarishadi, har xil ishorali zaryadlar tortishadi.</p>
+</section>
+
+<section id="1" class="card">
+<h2>3. 1-reja — O‘tkazgichlar va elektr zaryadlari ⚡</h2>
+<p>Mis, alyuminiy, temir, kumush va grafit kabi moddalar elektr tokini o‘tkazadi. Metallarda elektr tokini asosan <b>erkin elektronlarning tartibli harakati</b> hosil qiladi.</p>
+<div class="box"><b>Hayotiy misol:</b> telefon zaryadlagichining metall simlari elektr zaryadlarini uzatishga xizmat qiladi.</div>
+<p>Metall ichida elektronlar elektr maydon bo‘lmaganda tartibsiz harakat qiladi. Elektr maydon ta’sirida esa ularning tartibsiz harakatiga umumiy yo‘nalgan siljish qo‘shiladi.</p>
+
+<div class="anim"><h3>🎬 Animatsiya 1: O‘tkazgich ichidagi elektronlar</h3>
+<p><b>Boshlang‘ich:</b> mis sim va uning ichida tartibsiz harakatlanuvchi elektronlar.</p>
+<div class="sim" id="sim1"><div class="wire"></div></div>
+<button onclick="startElectrons()">▶ Animatsiyani boshlash</button>
+<button onclick="stopElectrons()">■ To‘xtatish</button>
+<p><b>Bosqichlar:</b> 1) elektronlar tartibsiz harakat qiladi; 2) elektr maydon paydo bo‘ladi; 3) elektronlarning umumiy siljishi maydon yo‘nalishiga qarama-qarshi bo‘ladi.</p>
+<p><b>Kuzatish:</b> elektronlar bir zumda to‘g‘ri chiziqda ketmaydi; ular tartibsiz harakat bilan birga yo‘nalgan siljishga ega.</p>
+<p><b>Xulosa:</b> metallarning elektr o‘tkazuvchanligi erkin elektronlar bilan bog‘liq.</p></div>
+</section>
+
+<section id="2" class="card">
+<h2>4. 2-reja — O‘tkazgich uchlarida zaryadlarning to‘planishi</h2>
+<p>Bir xil ishorali zaryadlar o‘zaro itariladi. Elektrostatik muvozanatda ortiqcha zaryad o‘tkazgichning <b>tashqi yuzasida</b> joylashadi.</p>
+<p>O‘tkazgich shakli notekis bo‘lsa, zaryad zichligi bir xil bo‘lmaydi. <b>O‘tkir uchlar va egrilik radiusi kichik joylarda sirt zaryad zichligi kattaroq bo‘ladi.</b></p>
+
+<div class="anim"><h3>🎬 Animatsiya 2: Zaryadlarning sirtga taqsimlanishi</h3>
+<p><b>Boshlang‘ich:</b> neytral metall shar.</p>
+<div class="sim" id="sim2"><div class="surface"></div></div>
+<button onclick="chargeSurface()">⚡ Zaryad berish</button>
+<p><b>Bosqichlar:</b> zaryadlar bir-birini itaradi → tashqi yuzaga siljiydi → o‘tkir uchli shaklda uchlar atrofida zichlik ortadi.</p>
+<p><b>Kuzatish:</b> zaryadlar o‘tkazgich ichida “yig‘ilib qolmaydi”; muvozanatda ortiqcha zaryad sirt bo‘ylab taqsimlanadi.</p>
+<p><b>Xulosa:</b> “zaryad faqat uchda” emas, balki butun tashqi sirt bo‘ylab taqsimlanadi; o‘tkir uchlarda zichlik kattaroq.</p></div>
+</section>
+
+<section id="3" class="card">
+<h2>5. 3-reja — O‘tkazgich atrofidagi elektr maydon ⚡</h2>
+<p>Zaryadlangan jism atrofida boshqa zaryadlarga kuch bilan ta’sir qiluvchi <b>elektr maydon</b> mavjud bo‘ladi.</p>
+<p><b>Elektr maydon kuch chiziqlari</b> maydon yo‘nalishini tasvirlash uchun ishlatiladi. Musbat zaryaddan chiziqlar tashqariga, manfiy zaryadga esa tomon yo‘naladi.</p>
+<div class="grid">
+<div class="box"><b>+</b><br>Kuch chiziqlari musbat zaryaddan tashqariga yo‘naladi.</div>
+<div class="box"><b>−</b><br>Kuch chiziqlari manfiy zaryad tomon yo‘naladi.</div>
+</div>
+<div class="anim"><h3>🎬 Animatsiya 3: Elektr maydon kuch chiziqlari</h3>
+<div class="sim"><div class="surface"></div><div class="field"></div><div style="position:absolute;left:47%;top:82px;color:#facc15;font-size:28px">+</div></div>
+<button onclick="toggleField()">⚡ Maydonni ko‘rsat/yashir</button>
+<p><b>Bosqichlar:</b> zaryadlangan shar → kuch chiziqlari paydo bo‘ladi → o‘tkir uchli shaklda chiziqlar zichlashadi.</p>
+<p><b>Kuzatish:</b> kuch chiziqlari zichroq tasvirlangan joyda elektr maydon kuchliroq deb tasavvur qilinadi.</p>
+<p><b>Xulosa:</b> zaryad zichligi katta bo‘lgan o‘tkazgich qismlarida elektr maydon kuchliroq bo‘lishi mumkin.</p></div>
+</section>
+
+<section class="card">
+<h2>6. Hayotiy misollar 🏠</h2>
+<ul>
+<li><b>Avtomobil kuzovi:</b> metall kuzov elektr zaryadlarining harakatlanishi bilan bog‘liq hodisalarda o‘tkazgich sifatida qaraladi.</li>
+<li><b>Yashin qaytargich:</b> baland va uchli qismlar atrofidagi elektr maydoni kuchliroq bo‘lishi mumkin.</li>
+<li><b>Metall shar:</b> zaryadlangan metall sharda ortiqcha zaryad tashqi yuzada joylashadi.</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>7. Rasm/diagramma yaratish uchun AI promptlar 🎨</h2>
+<div class="prompt">8-sinf fizika darsi uchun ilmiy jihatdan to‘g‘ri ta’limiy diagramma. Metall mis simning ichki tuzilishi, metall kristall panjarasi va erkin elektronlar ko‘rsatilgan. Elektronlar kichik nuqtalar bilan, elektr maydon yo‘nalishi va elektronlarning umumiy drift yo‘nalishi qarama-qarshi strelkalar bilan ko‘rsatilgan. Oq fon, sodda, zamonaviy, maktab darsligiga mos infografika.</div>
+<br>
+<div class="prompt">8-sinf fizika uchun zaryadlangan metall o‘tkazgich diagrammasi. Silliq metall shar va o‘tkir uchli metall o‘tkazgichni yonma-yon taqqoslash. Ortiqcha elektr zaryadlari tashqi yuzada joylashgan. O‘tkir uchlarda zaryadlar zichroq ko‘rsatilgan. Ilmiy aniq, sodda, o‘quvchiga tushunarli.</div>
+<br>
+<div class="prompt">8-sinf fizika darsi uchun zaryadlangan metall shar atrofidagi elektr maydon kuch chiziqlarini ko‘rsatuvchi ilmiy diagramma. Musbat zaryad, undan tashqariga yo‘nalgan radial kuch chiziqlari, strelkalar bilan yo‘nalish ko‘rsatilgan. O‘quv darsligiga mos, minimalistik va aniq.</div>
+</section>
+
+<section id="savollar" class="card">
+<h2>8. Interaktiv savollar 💡</h2>
+<div class="question">1. Nima sababdan mis sim elektr tokini yaxshi o‘tkazadi?<button onclick="showAnswer(0)">Javob</button><div class="answer">Unda elektr zaryadlarini tashuvchi erkin elektronlar mavjud.</div></div>
+<div class="question">2. Bir xil ishorali zaryadlar qanday ta’sirlashadi?<button onclick="showAnswer(1)">Javob</button><div class="answer">Itarishadi.</div></div>
+<div class="question">3. Ortiqcha zaryadlangan metall jismning ichida elektrostatik maydon qanday?</div>
+<div class="question">4. Nima uchun o‘tkir uchlarda elektr maydon kuchliroq?</div>
+<div class="question">5. Musbat zaryadning kuch chiziqlari qaysi tomonga yo‘naladi?</div>
+</section>
+
+<section id="test" class="card">
+<h2>9. 5 ta test 📝</h2>
+<ol>
+<li>Qaysi modda yaxshi elektr o‘tkazgich? <b>A)</b> Rezina <b>B)</b> Shisha <b>C)</b> Mis <b>D)</b> Plastmassa</li>
+<li>Metallarda elektr tokini asosan nima tashiydi? <b>A)</b> Protonlar <b>B)</b> Neytronlar <b>C)</b> Erkin elektronlar <b>D)</b> Yadrolar</li>
+<li>Bir xil ishorali zaryadlar... <b>A)</b> tortishadi <b>B)</b> itarishadi <b>C)</b> ta’sirlashmaydi <b>D)</b> yo‘qoladi</li>
+<li>Ortiqcha zaryadlangan o‘tkazgichda zaryad asosan qayerda? <b>A)</b> markazda <b>B)</b> tashqi yuzada <b>C)</b> faqat ichkarida <b>D)</b> faqat markazda</li>
+<li>O‘tkir uchlarda zaryad zichligi qanday? <b>A)</b> kichikroq <b>B)</b> nol <b>C)</b> kattaroq <b>D)</b> o‘zgarmaydi</li>
+</ol>
+<details><summary><b>Javoblarni ko‘rish</b></summary><p>1–C, 2–C, 3–B, 4–B, 5–C</p></details>
+</section>
+
+<section id="masala" class="card">
+<h2>10. Sodda masalalar 🧮</h2>
+<div class="box"><b>1-masala.</b> O‘tkazgichdagi elektr zaryadi 6 C. Uning bir qismi 2 C bo‘lsa, qolgan qismi qancha?<div class="formula">q₂ = q − q₁ = 6 − 2 = <b>4 C</b></div></div>
+<div class="box"><b>2-masala.</b> E = 200 N/C bo‘lgan maydonga q = 0,02 C zaryad qo‘yildi. Kuchni toping.<div class="formula">F = qE = 0,02 × 200 = <b>4 N</b></div><p>F — kuch (N), q — zaryad (C), E — maydon kuchlanganligi (N/C).</p></div>
+<div class="box"><b>3-masala.</b> E = 500 N/C, q = 0,01 C. Kuchni toping.<div class="formula">F = qE = 0,01 × 500 = <b>5 N</b></div></div>
+</section>
+
+<section class="card">
+<h2>11. “Bilimingni sinab ko‘r” 🧠</h2>
+<ol><li>O‘tkazgich deb nimaga aytiladi?</li><li>Metallarda elektr tokini qaysi zarralar tashiydi?</li><li>Erkin elektronlar nima?</li><li>Bir xil zaryadlar qanday ta’sirlashadi?</li><li>Ortiqcha zaryadlangan o‘tkazgichda zaryadlar qayerda joylashadi?</li><li>Nima uchun o‘tkir uchlarda zaryad zichligi katta?</li><li>Elektr maydon nima?</li><li>Kuch chiziqlari nima uchun kerak?</li><li>Musbat zaryadning kuch chiziqlari qaysi tomonga yo‘naladi?</li><li>Zaryad zichligi ortsa, elektr maydon qanday o‘zgaradi?</li></ol>
+<p><b>Bir jumlada:</b> Nima uchun o‘tkir uchli metall jism atrofida elektr maydon kuchliroq bo‘ladi?</p>
+</section>
+
+<section id="uy" class="card">
+<h2>12. Uyga vazifa 🏠</h2>
+<ol><li>Mavzuni o‘qish va asosiy tushunchalarni yozish.</li><li>Musbat va manfiy zaryadning kuch chiziqlarini chizish.</li><li>“Agar elektr zaryadlari o‘tkazgichda taqsimlanmasa, kundalik hayotimizda nimalar o‘zgarardi?” mavzusida 5–7 gap yozish.</li><li>Uyda uchraydigan 5 ta o‘tkazgich va 5 ta izolyatorni jadvalga yozish.</li></ol>
+<p>⚠️ Elektr rozetkasi, ochiq sim yoki boshqa xavfli qurilmalarni tajriba uchun ishlatmang.</p>
+</section>
+
+<section class="card">
+<h2>13. 45 daqiqalik qisqa dars ssenariysi 🎓</h2>
+<table><tr><th>Vaqt</th><th>O‘qituvchi</th><th>O‘quvchi</th></tr>
+<tr><td>0–3 daq.</td><td>Salomlashish, mavzuga kirish</td><td>Tayyorlanadi</td></tr>
+<tr><td>3–7</td><td>“Nima uchun mis sim elektrni o‘tkazadi?”</td><td>Taxmin qiladi</td></tr>
+<tr><td>7–15</td><td>O‘tkazgich va erkin elektronlar</td><td>Tinglaydi</td></tr>
+<tr><td>15–22</td><td>1-animatsiya</td><td>Kuzatadi</td></tr>
+<tr><td>22–29</td><td>Zaryadlarning sirtga taqsimlanishi</td><td>Xulosa qiladi</td></tr>
+<tr><td>29–34</td><td>2-animatsiya</td><td>O‘tkir uchlarni tahlil qiladi</td></tr>
+<tr><td>34–39</td><td>Elektr maydon va kuch chiziqlari</td><td>Chizma bajaradi</td></tr>
+<tr><td>39–42</td><td>Interaktiv savol va test</td><td>Javob beradi</td></tr>
+<tr><td>42–44</td><td>Bilimingni sinab ko‘r</td><td>Mustaqil ishlaydi</td></tr>
+<tr><td>44–45</td><td>Xulosa va uyga vazifa</td><td>Yozib oladi</td></tr>
+</table>
+</section>
+
+<section class="card">
+<h2>14. Eng muhim xulosalar ⭐</h2>
+<p>⚡ <b>Metallarda erkin elektronlar mavjud.</b></p>
+<p>⚡ <b>Elektrostatik muvozanatda ortiqcha zaryad o‘tkazgichning tashqi yuzasida taqsimlanadi.</b></p>
+<p>⚡ <b>O‘tkir uchlarda sirt zaryad zichligi kattaroq bo‘ladi.</b></p>
+<p>⚡ <b>Zaryadlangan o‘tkazgich atrofida elektr maydon mavjud.</b></p>
+<p>⚡ <b>Musbat zaryaddan kuch chiziqlari tashqariga, manfiy zaryadga esa tomon yo‘naladi.</b></p>
+</section>
+</main>
+<footer>8-sinf fizika • 6-mavzu • Interaktiv HTML5 dars materiali</footer>
+
+<script>
+let timer=null;
+function startElectrons(){
+ const sim=document.getElementById('sim1');
+ document.querySelectorAll('#sim1 .electron').forEach(e=>e.remove());
+ for(let i=0;i<18;i++){
+  const e=document.createElement('div'); e.className='electron';
+  e.style.top=(65+Math.random()*25)+'px'; e.style.left=(10+Math.random()*78)+'%'; sim.appendChild(e);
+ }
+ let shift=0;
+ clearInterval(timer);
+ timer=setInterval(()=>{
+  shift+=1;
+  document.querySelectorAll('#sim1 .electron').forEach((e,i)=>{
+   let x=parseFloat(e.style.left); x+=0.08+(i%3)*0.02; if(x>88)x=9;
+   e.style.left=x+'%';
+  });
+ },30);
+}
+function stopElectrons(){clearInterval(timer)}
+function chargeSurface(){
+ const sim=document.getElementById('sim2');
+ document.querySelectorAll('#sim2 .electron').forEach(e=>e.remove());
+ for(let i=0;i<28;i++){
+  const e=document.createElement('div');e.className='electron';
+  const a=Math.random()*Math.PI*2, r=55+Math.random()*7;
+  e.style.left=(50+Math.cos(a)*r/1.3)+'%'; e.style.top=(50+Math.sin(a)*r/1.3)+'%';
+  sim.appendChild(e);
+ }
+}
+function toggleField(){
+ document.querySelector('.field').style.display =
+ document.querySelector('.field').style.display==='none'?'block':'none';
+}
+function showAnswer(i){document.querySelectorAll('.answer')[i].style.display='block'}
+</script>
+</body>
+</html>
